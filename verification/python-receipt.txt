@@ -1,0 +1,1 @@
+PASS: all coefficient rows 1 through 30 from Corollary 4.16; original matching words on one-part degrees 1 through 6.

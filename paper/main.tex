@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\pdftrailerid{}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1.05in]{geometry}
+\usepackage[hidelinks,breaklinks,pdfauthor={Bowen Zuo},pdftitle={Half-genus monotone Hurwitz polynomials and differences of ultraspherical polynomials}]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\title{Half-genus monotone Hurwitz polynomials and differences of ultraspherical polynomials}
+\author{Bowen Zuo\\{\small East China University of Science and Technology}}
+\date{26 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the one-part connected $bt$-monotone Hurwitz polynomials of genus $1/2$, we verify the real-rootedness and consecutive interlacing conjectures of Coulter and Do in every nontrivial degree. We identify the normalized Hurwitz polynomial with a known infinitesimal Wishart moment polynomial, expressed as a change of variable in a Chebyshev--Legendre difference. We prove more generally that the differences between first-kind Chebyshev polynomials and normalized Gegenbauer polynomials of any fixed positive parameter have simple, strictly interlacing zeros after removal of their two common endpoints.
+\end{abstract}
+
+\section{The one-part problem}
+Let $H_m(b,t)=\vec H_{1/2,1}^{(bt)}(m)$ denote the connected, one-part $bt$-monotone Hurwitz polynomial of Coulter and Do \cite[Cor.~4.16, Prop.~4.18]{cd}. In their matching interpretation, $mH_m$ sums $b^{\mathrm{flip}}t^{\mathrm{hive}}$ over the connected monotone words in transpositions of length $m$ for an initial matching of coset type $(m)$. The hive counts distinct larger labels in the word; the flip statistic uses the canonical alternating charges of the successive matchings. Their Conjectures~4.21 and 4.22 predict real-rootedness and weak interlacing on increasing any one part; their stated parameter domain excludes $b=0,-1$. The reported computations at this genus cover total sizes through 16 at nine sample values of $b$. We treat all one-part degrees at this genus.
+
+\begin{theorem}\label{H}
+For $m\ge1$ one has the polynomial identity
+\[
+ mH_m(b,t)=\frac b2\sum_{j=0}^m
+       \left\{\binom{2m}{2j}-\binom mj^2\right\}t^j.
+\]
+For every real $b\ne0$ and $m\ge2$, $H_m$ has degree $m-1$, a simple zero at $0$, and $m-2$ simple negative zeros. The negative zeros of $H_m$ and $H_{m+1}$ interlace strictly, with the higher degree row supplying the two outer zeros when $m\ge3$. The original rows therefore interlace weakly. At $m=2$ the lower row has no negative zeros and the upper row has one. The polynomial is identically zero for $m=1$ or for $b=0$.
+\end{theorem}
+
+The identity also gives the specialization $b=-1$ of the enumerating polynomial. The vanishing of the half-genus row at $b=0$ is consistent with the unitary specialization. Results for nonzero integer-genus unitary polynomials concern a different specialization \cite{cdm}. Our previously published genus-two certificate concerns only two two-part profiles \cite{two}; its enumeration is independent of this proof.
+
+\section{Extracting the polynomial}
+Write $f_m=m\vec H_{0,1}^{(bt)}(m)$ and $b g_m=mH_m(b,t)$. We justify the factorization without division by $b$. Put $s=t-1$, set $f_1=1$, $g_1=0$, and take the sums below over $i,j\ge1$ with $i+j=m$. Corollary~4.16 of \cite{cd} yields for $m\ge2$
+\begin{align}
+ f_m&=\sum_{i+j=m} f_i f_j+s f_{m-1},\label{r1}\\
+ g_m&=2\sum_{i+j=m} f_i g_j+(m-1) f_m+s g_{m-1}.\label{r2}
+\end{align}
+There is no second marked part to join and the nonseparating cut lowers the genus by one. In genus zero a separating cut gives two genus-zero children. In genus $1/2$ either child has genus $1/2$, giving the factor two in \eqref{r2}. The flip term is $b m(m-1)\vec H_{0,1}^{(bt)}(m)$. The shrink term has weight $s(m-1)$ before the child normalization. These terms prove the two recurrences and the asserted factorization by induction in $m$, including at $b=0$. In degree one there is no flip or cut and the half-genus word set is empty.
+
+Set $F=\sum_{m\ge1} f_m z^m$, $G=\sum_{m\ge1} g_m z^m$ in $\mathbb Q[t][[z]]$. Then $F=z+F^2+szF$ and $(1-2F-sz)G=zF'-F$. With $D=(1-sz)^2-4z$ and $Y=\sqrt D$ of constant term one, one has $2F=1-sz-Y$. Differentiating with respect to $z$ gives $YF'=1+sF$ and consequently $G=F(F+sz)/D$. Substitution yields
+\begin{equation}\label{G}
+ G=\frac12\left(\frac{1-(1+t)z}{D}-\frac1{\sqrt D}\right),\qquad
+ D=1-2(1+t)z+(1-t)^2z^2 .
+\end{equation}
+Let $T_m$ be the Chebyshev polynomial of the first kind and $P_m$ the Legendre polynomial with $P_m(1)=1$. Their ordinary generating functions in \eqref{G}, with $y=(1+t)/(1-t)$, give
+\begin{equation}\label{pull}
+ g_m(t)=\tfrac12(1-t)^m\{T_m(y)-P_m(y)\}.
+\end{equation}
+This identity is initially in $\mathbb Q(t)$ and both sides are polynomials. For the explicit coefficients, factor $D$ over $\mathbb Q(\sqrt t)$; its reciprocal characteristic roots are $(1+\sqrt t)^2$ and $(1-\sqrt t)^2$. The rational term of \eqref{G} then contributes $\sum_j\binom{2m}{2j}t^j$ before multiplication by $1/2$. The second term has coefficient $\sum_j\binom mj^2t^j$. One direct verification of the latter identity is to take the constant term in $v$ of $[(1+v)(1+t/v)]^m$, sum over $m$, and use $\sum_{k\ge0}\binom{2k}{k}w^k=(1-4w)^{-1/2}$. The two extreme coefficients in the difference cancel; the coefficients at $t$ and $t^{m-1}$ in $g_m$ both equal $m(m-1)/2$ for $m\ge2$.
+
+
+There is a prior random-matrix interpretation of the same polynomials.
+For $0<t\le1$, put $a=(1-\sqrt t)^2$, $b_+=(1+\sqrt t)^2$,
+and let $\omega$ denote the arcsine probability measure on $[a,b_+]$.
+The Laguerre correction measure of Dumitriu and Edelman, used in
+\cite[Theorem~1.5]{de}, is $(\delta_a+\delta_{b_+})/4-\omega/2$.
+Its $m$th moment equals $g_m(t)$, since the arcsine moment has generating
+function $D^{-1/2}$ and the averaged endpoint moments have generating
+function $(1-(1+t)z)/D$.
+Mingo and Vazquez-Becerra give the full coefficient formula for $g_m(c)$
+as an annular noncrossing-permutation polynomial, its recurrence, and its
+generating function \cite[Prop.~19 and Thms.~42, 43, 45]{mv}. Their
+shape parameter $c$ is our $t$. Arizmendi, Garza-Vargas and Perales obtain
+$-g_m(t)$ as the infinitesimal moment for Laguerre polynomials
+\cite[Ex.~5.9, Eq.~(38)]{agp}. Our contribution here is the identification
+$mH_m=b g_m$ from the connected Hurwitz recurrence and the consecutive
+zero comparison in the shape parameter.
+
+\section{A consecutive zero comparison}
+Let $Z_m(x)=C_m^{(\lambda)}(x)/C_m^{(\lambda)}(1)$ be a normalized Gegenbauer polynomial, with fixed $\lambda>0$. Set $D_m(x)=T_m(x)-Z_m(x)$.
+\begin{theorem}\label{orth}
+For each $m\ge2$, $D_m$ has simple roots at $\pm1$ and $m-2$ simple roots in $(-1,1)$. The roots of $D_m/(1-x^2)$ strictly interlace the roots of $D_{m+1}/(1-x^2)$.
+\end{theorem}
+
+\begin{proof}
+Write $M=m(m+2\lambda)$. The classical differential equation and adjacent-degree identity for this normalization are \cite[\S\S18.8--18.9]{dlmf}
+\[
+ (1-x^2)Z_m''-(2\lambda+1)xZ_m'+MZ_m=0,\qquad
+ Z_{m+1}=x Z_m-\frac{1-x^2}{m+2\lambda} Z_m'.
+\]
+The quantity $E=Z_m^2+(1-x^2)(Z_m')^2/M$ satisfies
+\[
+ E'(x)=\frac{4\lambda x}{M}(Z_m'(x))^2,\qquad E(1)=E(-1)=1 .
+\]
+As $Z_m$ is nonconstant, integration gives $E(x)<1$ for $-1<x<1$. In particular $|Z_m(x)|<1$. At $x=\cos(i\pi/m)$, $1\le i\le m-1$, the sign of $D_m$ is $(-1)^i$. For each $1\le i\le m-2$ there is an interior root with angle strictly in $(i\pi/m,(i+1)\pi/m)$. Together with $\pm1$ these are $m$ distinct roots of a nonzero polynomial of degree at most $m$. They are consequently simple and exhaust its zeros.
+
+At such an interior root $x=\cos\theta$, $Z_m(x)=T_m(x)$. With $U_{m-1}(\cos\theta)=\sin(m\theta)/\sin\theta$, the energy estimate gives
+\[
+ |Z_m'(x)|\le \sqrt{M}\,|U_{m-1}(x)| < (m+2\lambda)|U_{m-1}(x)|.
+\]
+The last inequality uses $\lambda>0$ and the strict location of the angle. Since $T_{m+1}=xT_m-(1-x^2)U_{m-1}$, at this root
+\[
+ D_{m+1}(x)=-(1-x^2)\left(U_{m-1}(x)-\frac{Z_m'(x)}{m+2\lambda}\right).
+\]
+Its sign is $(-1)^{i+1}$ for the root in the $i$th angle interval. Before the first and after the last such angle, use respectively $\pi/(m+1)$ and $m\pi/(m+1)$. The signs of $D_{m+1}$ there are $-1$ and $(-1)^m$. Thus there is one upper-row interior root in each of the $m-1$ gaps determined by the lower row and the endpoints. The counts from the first part give strict interlacing. For $m=2$ the lower quotient is constant and the upper quotient is linear.
+\end{proof}
+
+The case $\lambda=1$ also follows from classical Gegenbauer interlacing:
+$D_m/(1-x^2)=-U_{m-1}'/(m+1)=-2C_{m-2}^{(2)}/(m+1)$.
+Taking $\lambda=1/2$ makes $Z_m=P_m$. The map $y\mapsto t=(y-1)/(y+1)$ is strictly increasing from $(-1,1)$ onto $(-\infty,0)$. The endpoint $y=1$ gives $t=0$ and $y=-1$ accounts for the loss of one degree. The endpoint slopes satisfy $D_m'(1)=2\lambda m(m-1)/(2\lambda+1)$ and $D_m'(-1)=(-1)^{m+1}D_m'(1)$ by the differential equation. The comparisons in Theorem~\ref{H} now follow from \eqref{pull} and Theorem~\ref{orth}. In particular $H_2=bt/2$, and $H_3=b(t+t^2)$.
+
+\paragraph{Verification.}
+The coefficient formula was compared in exact arithmetic against the cut--join--flip recursion for $1\le m\le30$ and against a separate enumeration of the original weighted matching words for $1\le m\le6$. The proof for all degrees is the argument above. ChatGPT assisted in deriving, checking and drafting the proof. The author takes responsibility for the manuscript.
+
+\begin{thebibliography}{9}
+\bibitem{cd} X. Coulter and N. Do, \emph{From Weingarten calculus for real Grassmannians to deformations of monotone Hurwitz numbers and Jucys--Murphy elements}, \href{https://arxiv.org/abs/2506.04002}{arXiv:2506.04002} (2025).
+\bibitem{cdm} X. Coulter, N. Do and E. Moskovsky, \emph{Integration on complex Grassmannians, deformed monotone Hurwitz numbers, and interlacing phenomena}, \href{https://doi.org/10.4153/S0008414X25101168}{doi:10.4153/S0008414X25101168}.
+\bibitem{mv} J. A. Mingo and J. Vazquez-Becerra, \emph{The asymptotic infinitesimal distribution of a real Wishart random matrix}, \href{https://arxiv.org/abs/2112.15231v2}{arXiv:2112.15231v2} (2022).
+\bibitem{agp} O. Arizmendi, J. Garza-Vargas and D. Perales, \emph{Finite free cumulants: multiplicative convolutions, genus expansion and infinitesimal distributions}, \href{https://arxiv.org/abs/2108.08489v2}{arXiv:2108.08489v2} (2024).
+\bibitem{de} I. Dumitriu and A. Edelman, \emph{Global spectrum fluctuations for the $\beta$-Hermite and $\beta$-Laguerre ensembles via matrix models}, J. Math. Phys. \textbf{47} (2006), 063302, \href{https://doi.org/10.1063/1.2200144}{doi:10.1063/1.2200144}.
+\bibitem{dlmf} NIST Digital Library of Mathematical Functions, \href{https://dlmf.nist.gov/18}{Chapter 18, Orthogonal Polynomials}, especially \S\S18.5, 18.8, 18.9, 18.12.
+\bibitem{two} B. Zuo, \emph{Strict interlacing for two genus-two deformed monotone Hurwitz polynomials}, \href{https://doi.org/10.5281/zenodo.24557177}{version 1.0.0, doi:10.5281/zenodo.24557177} (2026).
+\end{thebibliography}
+\end{document}

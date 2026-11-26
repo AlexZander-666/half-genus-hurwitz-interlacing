@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Cite the signed paper with its matching verification material."
+type: software
+title: "Half-genus monotone Hurwitz polynomials and differences of ultraspherical polynomials"
+authors:
+  - family-names: "Zuo"
+    given-names: "Bowen"
+    affiliation: "East China University of Science and Technology"
+version: "1.0.0"
