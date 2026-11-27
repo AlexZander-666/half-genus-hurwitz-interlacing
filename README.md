@@ -26,3 +26,7 @@ For a new dependency cache, copy the three project configuration files to a scra
 The four-page PDF was built using TeX Live 2026 (pdfTeX 1.40.29). With pdfLaTeX including Latin Modern and AMS fonts on the path, copy `paper/main.tex` and `paper/reproduce.py` to a scratch directory and run `python3 reproduce.py` there. The script compiles the source twice from scratch with reproducible settings, doing two LaTeX passes in each directory. Compare the result with the paper and TeX archive hashes in `MANIFEST.sha256`.
 
 [Software and manuscript rights](LICENSE-SCOPE.md) · [Citation](CITATION.cff)
+
+## Authorship
+
+The tagged release v1.0.0 lists Bowen Zuo as sole author. It remains unchanged and may be cited as it is. The manuscript prepared for journal submission is joint work of Bowen Zuo and Xiaojuan Luo (corresponding author), both of East China University of Science and Technology.
